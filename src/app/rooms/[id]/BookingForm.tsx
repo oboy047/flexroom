@@ -9,7 +9,6 @@ export default function BookingForm({ roomId }: { roomId: number }) {
     e.preventDefault();
     setLoading(true);
     setMsg(null);
-
     const form = e.currentTarget as any;
     const start = form.start.value;
     const end = form.end.value;
@@ -20,21 +19,46 @@ export default function BookingForm({ roomId }: { roomId: number }) {
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ roomId, userId, startTime: start, endTime: end }),
     });
-    const data = await res.json();
 
+    const data = await res.json();
     setLoading(false);
-    setMsg(res.ok ? `Booking OK (#${data.bookingId})` : `Feil: ${data.error || "ukjent"}`);
+    setMsg(res.ok ? `✅ Booking registrert (#${data.bookingId})` : `❌ Feil: ${data.error || "ukjent feil"}`);
   }
 
   return (
-    <form onSubmit={onSubmit} className="mt-8 space-y-3 border rounded-xl p-4">
-      <div className="font-semibold">Book tid</div>
-      <input name="start" type="datetime-local" className="border rounded p-2 w-full" required />
-      <input name="end" type="datetime-local" className="border rounded p-2 w-full" required />
-      <button disabled={loading} className="px-4 py-2 rounded bg-black text-white">
-        {loading ? "Bestiller..." : "Bekreft booking"}
+    <form
+      onSubmit={onSubmit}
+      className="mt-4 grid gap-5 bg-gray-50 border border-gray-200 rounded-xl p-6"
+    >
+      <div className="grid md:grid-cols-2 gap-4">
+        <label className="block">
+          <span className="text-sm text-gray-600">Starttid</span>
+          <input
+            name="start"
+            type="datetime-local"
+            className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500"
+            required
+          />
+        </label>
+        <label className="block">
+          <span className="text-sm text-gray-600">Sluttid</span>
+          <input
+            name="end"
+            type="datetime-local"
+            className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500"
+            required
+          />
+        </label>
+      </div>
+
+      <button
+        disabled={loading}
+        className="mt-4 w-full md:w-auto px-6 py-2.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-semibold transition"
+      >
+        {loading ? "⏳ Bestiller..." : "✅ Bekreft booking"}
       </button>
-      {msg && <div className="text-sm opacity-80">{msg}</div>}
+
+      {msg && <p className="mt-3 text-gray-700 font-medium">{msg}</p>}
     </form>
   );
 }
