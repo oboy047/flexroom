@@ -18,7 +18,6 @@ export default function AnnonseCard() {
     setLoading(true);
     setMsg(null);
 
-    // Example fake submit
     setTimeout(() => {
       setLoading(false);
       setMsg("✅ Annonse publisert!!");
