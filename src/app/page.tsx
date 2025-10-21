@@ -1,6 +1,9 @@
 import { db } from "@/lib/db";
 import { rooms } from "@/server/schema";
 import Link from "next/link";
+import HomePage from "./home/page";
+
+
 
 export default async function Home() {
   const data = await db.select().from(rooms);

@@ -4,6 +4,8 @@ import { eq } from "drizzle-orm";
 import BookingForm from "./BookingForm";
 import RoomImage from "./RoomImage";
 
+
+
 type Props = { params: { id: string } };
 export const dynamic = "force-dynamic";
 
