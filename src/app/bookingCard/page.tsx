@@ -35,19 +35,25 @@ export default function AnnonseCard() {
       {/* Navbar - med bedrift og bruker*/}
       <header className="w-full bg-white shadow-sm sticky top-0 z-10">
         <div className="max-w-6xl mx-auto flex items-center justify-between p-4">
-          <Link href="/" className="text-2xl font-bold hover:opacity-80 transition">
+          {/*Legg til home her */}
+          <Link href="/admin" className="text-2xl font-bold hover:opacity-80 transition">
             🏢 FlexRoom Admin
           </Link>
           <span className="font-medium text-gray-700">Bedrift / Bruker</span>
         </div>
       </header>
 
+         <section className="text-center py-7 bg-gradient-to-r from-indigo-500 to-purple-500 text-white">
+        <h2 className="text-3xl font-bold mb-2">Lag ny annonse</h2>
+
+      </section>
+
       {/* Form Lag annonse + tittle,  */}
       <form
         onSubmit={onSubmit}
         className="max-w-3xl mx-auto mt-6 bg-white p-6 rounded-2xl shadow-md grid gap-5"
       >
-        <h2 className="text-2xl font-semibold">Lag ny annonse</h2>
+        
 
         <label className="block">
           <span className="text-sm text-gray-600">Tittel / Navn på rom eller kontor</span>
@@ -75,7 +81,7 @@ export default function AnnonseCard() {
 
         <div className="grid md:grid-cols-2 gap-4">
           <label className="block">
-            <span className="text-sm text-gray-600">Pris per time (kr)</span>
+            <span className="text-sm text-gray-600">Pris per time (kr💰)</span>
             <input
               type="number"
               value={price}

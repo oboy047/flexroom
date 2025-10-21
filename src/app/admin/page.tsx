@@ -8,7 +8,7 @@ export default function AdminPage() {
     {
       title1: "Lag annonse",
       descriptionFlex: "Opprett en ny annonse for dine produkter eller tjenester.",
-      href: "/create-ad",
+      href: "/bookingCard",
     },
     {
       title1: "Mine annonser",
@@ -33,7 +33,7 @@ export default function AdminPage() {
       <header className="w-full bg-white shadow-sm sticky top-0 z-10">
         <div className="max-w-6xl mx-auto flex items-center justify-between p-4">
           <Link href="/" className="text-2xl font-bold hover:opacity-80 transition">
-            🏢 FlexRoom Admin
+            🏢 FlexRoom 
           </Link>
           <span className="font-medium">Bedrift / Bruker</span>
         </div>
