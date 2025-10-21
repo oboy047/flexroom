@@ -1,6 +1,11 @@
 import { db } from "@/lib/db";
 import { rooms } from "@/server/schema";
 import Link from "next/link";
+import Login from "./login/page";
+
+export function Page() {
+  return <Login />;
+}
 
 export default async function Home() {
   const data = await db.select().from(rooms);
@@ -15,6 +20,7 @@ export default async function Home() {
             <Link href="/">Hjem</Link>
             <Link href="/about">Om oss</Link>
             <Link href="/contact">Kontakt</Link>
+            <Link href="/login" className="text-indigo-600 hover:text-indigo-800 font-semibold">Logg inn</Link>
           </nav>
         </div>
       </header>
