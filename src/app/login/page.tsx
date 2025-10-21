@@ -22,9 +22,9 @@ const Login: React.FC = () => {
 
     };
     return (
-        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh", backgroundColor: "#f0f0f0" }}>
-            <h1 style={{ position: "absolute", top: 20, fontSize: 24, fontWeight: "bold" }}>Logg inn til Flexroom</h1>
+        <main className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex flex-col items-center justify-center p-6">
             <div style={{ maxWidth: 300, margin: "auto", padding: 20, backgroundColor: "lightgrey", borderRadius: 10, display: "flex", flexDirection: "column", justifyContent: "center" }} className="grid gap-4">
+                <h1 style={{ top: 20, fontSize: 24, fontWeight: "bold" }}>Logg inn til Flexroom</h1>
                 <form onSubmit={handleSubmit}>
                 <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", gap: 10 }}>
                     <label htmlFor="role-user" style={{ display: "flex", justifyContent: "center" }}>
@@ -87,9 +87,11 @@ const Login: React.FC = () => {
                             }
                             //sparker brukeren videre til riktig dashbord basert på valgt rolle
                             if (role === "admin") {
-                            window.location.href = "/admin/dashboard";
+                            window.location.href = "/admin";
                             }
-                            window.location.href = "/";
+                            else{
+                                window.location.href = "/";
+                            }
                         }
                     }}
                 >
@@ -97,7 +99,7 @@ const Login: React.FC = () => {
                 </button>
                 </form>
             </div>
-        </div>
+        </main>
     );
 };
 
