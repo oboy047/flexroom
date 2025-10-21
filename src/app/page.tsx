@@ -3,6 +3,7 @@ import { rooms } from "@/server/schema";
 import Link from "next/link";
 import Login from "./login/page";
 import HomePage from "./home/page";
+import AdminPage from "./admin/page"
 export function Page() {
   return <Login />;
 }
