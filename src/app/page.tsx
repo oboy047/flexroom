@@ -2,10 +2,12 @@ import { db } from "@/lib/db";
 import { rooms } from "@/server/schema";
 import Link from "next/link";
 import Login from "./login/page";
-
+import HomePage from "./home/page";
 export function Page() {
   return <Login />;
 }
+
+
 
 export default async function Home() {
   const data = await db.select().from(rooms);
